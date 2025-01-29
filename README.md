@@ -3,8 +3,11 @@ The Crop and Fertilizer Recommendation System is an AI-driven solution designed 
 
 
 📌 Features
+
 📊 Crop Recommendation: Suggests the best crops based on soil and climate parameters.
+
 🧪 Fertilizer Suggestion: Recommends fertilizers to optimize soil nutrients.
+
 🌦️ Weather-Based Insights: Integrates real-time weather data for better planning.
 
 
