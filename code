@@ -18,4 +18,74 @@ crop.describe()
   crop.columns
   # check the arget distribution
 crop['label'].value_counts()
+features = crop.columns.to_list()
+features.remove('label') 
+print(features)
+# Visualize the distribution of each feature
+
+import seaborn as sns
+fig, ax = plt.subplots(3, 3, figsize=(15, 15))
+for i, subplot in zip(features, ax.flatten()):
+    sns.histplot(crop[i], ax=subplot, kde=True)
+    subplot.set_title(i)
+plt.tight_layout()
+plt.show()
+# Ploting scatter plot
+import seaborn as sns
+fig, ax = plt.subplots(3, 3, figsize=(15, 15))
+for i, subplot in zip(features, ax.flatten()):
+    sns.scatterplot(x=i, y='label', data=crop, ax=subplot)
+plt.tight_layout()
+plt.show()
+# Finding outliers - boxplot
+fig, ax = plt.subplots(3,3, figsize=(15,15))
+for i, subplot in zip(features, ax.flatten()):
+    sns.boxplot(crop[i], ax=subplot)
+plt.tight_layout()
+plt.show()
+# Correlation of the features
+num_cols = crop.select_dtypes(include=[np.number])
+num_cols
+corr = num_cols.corr()
+corr
+# Visualizing with Heatmap
+sns.heatmap(corr, annot=True, cmap='coolwarm')
+plt.show()
+ENCODING
+crop['label'].unique()
+crop['crop_no'] = crop['label'].map(crop_dict)
+crop.head()
+crop.tail()
+crop.drop('label', axis=1, inplace=True)
+crop.tail()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
